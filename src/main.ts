@@ -17,7 +17,7 @@ async function bootstrap() {
       'g3gen@gmail.com',
     )
     .setVersion('1.0')
-    // .addBearerAuth()
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/swagger', app, document);

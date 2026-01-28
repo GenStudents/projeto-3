@@ -12,8 +12,11 @@ import {
 } from '@nestjs/common';
 import { Categoria } from '../entities/categoria.entity';
 import { CategoriaService } from '../services/categoria.service';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @Controller('/categorias')
+@ApiTags('Categoria')
+@ApiBearerAuth()
 export class CategoriaController {
   constructor(private readonly categoriaService: CategoriaService) {}
 
