@@ -8,9 +8,9 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Sistema Delivery')
-    .setDescription('Projeto Delivery')
+    .setDescription('Grupo 3 - Alissa / Felipe / Fernanda / Jéssica / Matheus V / Tacila')
     .setContact(
-      "Grupo 3",
+      "Grupo 3 JavaScript 12",
       "http://www.link-do-deploy.com",
       "g3gen@gmail.com")
     .setVersion('1.0')
