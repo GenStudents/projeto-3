@@ -1,11 +1,10 @@
-import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ILike, Repository } from 'typeorm';
 import { Produto } from '../entities/produto.entity';
 
 @Injectable()
 export class ProdutoService {
-
   constructor(
     @InjectRepository(Produto)
     private produtoRepository: Repository<Produto>,
@@ -21,10 +20,7 @@ export class ProdutoService {
     });
 
     if (!produto)
-      throw new HttpException(
-        'Produto não encontrado',
-        HttpStatus.NOT_FOUND,
-      );
+      throw new HttpException('Produto não encontrado', HttpStatus.NOT_FOUND);
 
     return produto;
   }

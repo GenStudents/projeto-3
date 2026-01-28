@@ -1,9 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { IsNotEmpty, IsNumber, IsBoolean } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsNumber } from 'class-validator';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'tb_produtos' })
 export class Produto {
-
   @PrimaryGeneratedColumn()
   id: number;
 
