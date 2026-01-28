@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
-<<<<<<< HEAD
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
+import { CategoriaModule } from './categoria/categoria.module';
 import { ProdService } from './data/prod.service';
+import { ProdutoModule } from './produto/produto.module';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
   imports: [
@@ -11,22 +14,10 @@ import { ProdService } from './data/prod.service';
       useClass: ProdService,
       imports: [ConfigModule],
     }),
-=======
-import { TypeOrmModule } from '@nestjs/typeorm';
-
-@Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'db_delivery',
-      entities: [],
-      synchronize: true,
-    })
->>>>>>> origin/feature/categoria
+    CategoriaModule,
+    ProdutoModule,
+    AuthModule,
+    UsuarioModule,
   ],
   controllers: [],
   providers: [],
