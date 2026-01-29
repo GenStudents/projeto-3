@@ -1,98 +1,120 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+````markdown
+# FoodFlow 🍔📦
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+> **Solução backend robusta desenvolvida para organizar e acelerar o delivery de pequenos restaurantes.**
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🔗 Links do Projeto
 
-## Project setup
+- 🚀 **Link do Deploy (Render):**  
+  [Acesse a API Online](https://SEU-APP.onrender.com)
 
-```bash
-$ npm install
-```
+- 📂 **Repositório GitHub:**  
+  [Link para o Código Fonte](https://github.com/GenStudents/projeto-3)
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+## 📝 Sobre o Projeto
 
-# watch mode
-$ npm run start:dev
+O **FoodFlow** surgiu como uma resposta aos desafios enfrentados por pequenos restaurantes no gerenciamento de delivery.  
+Muitas vezes, a falta de padronização e a dificuldade em atualizar preços geram erros e retrabalho.
 
-# production mode
-$ npm run start:prod
-```
+A plataforma oferece uma **estrutura backend organizada**, permitindo o gerenciamento eficiente de produtos por categorias, servindo como base sólida para integração com aplicações web ou mobile.
 
-## Run tests
+### ✨ Diferenciais
 
-```bash
-# unit tests
-$ npm run test
+- **Organização Estruturada:** Padronização completa do cardápio.
+- **Segurança de Dados:** Controle rigoroso de acesso e integridade via JWT.
+- **Pronto para Produção:** API documentada e hospedada em ambiente real.
 
-# e2e tests
-$ npm run test:e2e
+---
 
-# test coverage
-$ npm run test:cov
-```
+## 🛠️ Tecnologias Utilizadas
 
-## Deployment
+A stack foi escolhida visando performance, organização e escalabilidade:
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+- **Framework:** [NestJS](https://nestjs.com/)
+- **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
+- **Banco de Dados:** [MySQL](https://www.mysql.com/)
+- **ORM:** [TypeORM](https://typeorm.io/)
+- **Documentação:** [Swagger](https://swagger.io/)
+- **Testes:** [Jest](https://jestjs.io/)
+- **Hospedagem:** [Render](https://render.com/)
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+---
+
+## 📊 Modelo de Dados
+
+O sistema baseia-se em três entidades principais relacionadas:
+
+- **Usuário:** responsável pelo acesso ao sistema e gerenciamento do catálogo.
+- **Produto:** item central do sistema, vinculado a um usuário e a uma categoria.
+- **Categoria:** utilizada para organização do cardápio (ex: Lanches, Bebidas, Sobremesas).
+
+---
+
+## ⚙️ Instalação e Execução
+
+Siga os passos abaixo para rodar o projeto localmente:
+
+### 1️⃣ Clone o repositório
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+git clone https://github.com/seu-usuario/foodflow.git
+````
+
+### 2️⃣ Acesse a pasta do projeto
+
+```bash
+cd foodflow
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 3️⃣ Instale as dependências
 
-## Resources
+```bash
+npm install
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### 4️⃣ Variáveis de Ambiente
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Crie um arquivo `.env` na raiz do projeto e configure as credenciais do banco de dados MySQL:
 
-## Support
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=senha
+DB_NAME=foodflow
+JWT_SECRET=sua_chave_secreta
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 5️⃣ Execute a aplicação
 
-## Stay in touch
+```bash
+npm run start:dev
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
-## License
+## 📘 Documentação Swagger
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Acesse a documentação interativa para testar os endpoints:
+
+```
+http://localhost:4000/swagger
+```
+
+---
+
+## 📈 Próximos Passos
+
+* Implementação do módulo de **Pedidos e Carrinho**
+* Dashboard administrativo com **gráficos de vendas**
+* Relatórios e métricas de desempenho em **tempo real**
+
+---
+
+Este projeto foi desenvolvido durante o **Bootcamp da Generation Brasil** 🚀
+
