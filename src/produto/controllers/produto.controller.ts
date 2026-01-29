@@ -15,10 +15,7 @@ import { ProdutoService } from '../services/produto.service';
 
 @Controller('/produtos')
 export class ProdutoController {
-
-  constructor(
-    private readonly produtoService: ProdutoService,
-  ) {}
+  constructor(private readonly produtoService: ProdutoService) {}
 
   @Get()
   @HttpCode(HttpStatus.OK)
@@ -28,17 +25,13 @@ export class ProdutoController {
 
   @Get('/:id')
   @HttpCode(HttpStatus.OK)
-  findById(
-    @Param('id', ParseIntPipe) id: number,
-  ): Promise<Produto> {
+  findById(@Param('id', ParseIntPipe) id: number): Promise<Produto> {
     return this.produtoService.findById(id);
   }
 
   @Get('/nome/:nome')
   @HttpCode(HttpStatus.OK)
-  findAllByNome(
-    @Param('nome') nome: string,
-  ): Promise<Produto[]> {
+  findAllByNome(@Param('nome') nome: string): Promise<Produto[]> {
     return this.produtoService.findAllByNome(nome);
   }
 
@@ -56,9 +49,7 @@ export class ProdutoController {
 
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  delete(
-    @Param('id', ParseIntPipe) id: number,
-  ) {
+  delete(@Param('id', ParseIntPipe) id: number) {
     return this.produtoService.delete(id);
   }
 }
