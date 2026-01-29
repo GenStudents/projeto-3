@@ -1,48 +1,50 @@
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
-import { Bcrypt } from '../bcrypt/bcrypt';
 import { UsuarioService } from '../../usuario/services/usuario.service';
+import { Bcrypt } from '../bcrypt/bcrypt';
 import { LoginUser } from '../entities/loginuser.entity';
-
 
 @Injectable()
 export class AuthService {
+  constructor(
+    private userService: UsuarioService,
+    private jwtService: JwtService,
+    private bcrypt: Bcrypt,
+  ) {}
 
-    constructor(
-        private userService: UsuarioService,
-        private jwtService: JwtService,
-        private bcrypt: Bcrypt
-    ) { }
+  async validateUser(username: string, password: string): Promise<any> {
+    const buscaUsuario = await this.userService.findByUsuario(username);
 
-    async validateUser(username: string, password: string): Promise<any> {
-        const buscaUsuario = await this.userService.findByUsuario(username)
+    if (!buscaUsuario)
+      throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND);
 
-        if (!buscaUsuario)
-            throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND)
+    const matchPassword = await this.bcrypt.compararSenhas(
+      password,
+      buscaUsuario.senha,
+    );
 
-        const matchPassword = await this.bcrypt.compararSenhas(password, buscaUsuario.senha)
-
-        if (buscaUsuario && matchPassword) {
-            const { senha: password, ...resposta } = buscaUsuario
-            return resposta
-        }
-
-        return null
+    if (buscaUsuario && matchPassword) {
+      const { senha: password, ...resposta } = buscaUsuario;
+      return resposta;
     }
 
-    async login(usuarioLogin: LoginUser) {
-        const payload = { sub: usuarioLogin.usuario }
+    return null;
+  }
 
-        const buscaUsuario = await this.userService.findByUsuario(usuarioLogin.usuario)
+  async login(usuarioLogin: LoginUser) {
+    const payload = { sub: usuarioLogin.usuario };
 
-        return {
-            id: buscaUsuario?.id,
-            nome: buscaUsuario?.nome,
-            usuario: usuarioLogin.usuario,
-            senha: '',
-            foto: buscaUsuario?.foto,
-            token: `Bearer ${this.jwtService.sign(payload)}`,
-        }
-    }
+    const buscaUsuario = await this.userService.findByUsuario(
+      usuarioLogin.usuario,
+    );
 
+    return {
+      id: buscaUsuario?.id,
+      nome: buscaUsuario?.nome,
+      usuario: usuarioLogin.usuario,
+      senha: '',
+      foto: buscaUsuario?.foto,
+      token: `Bearer ${this.jwtService.sign(payload)}`,
+    };
+  }
 }

@@ -1,10 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsNotEmpty, IsNumber } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Categoria } from '../../categoria/entities/categoria.entity';
+import { Usuario } from '../../usuario/entities/usuario.entity';
 
 @Entity({ name: 'tb_produtos' })
 export class Produto {
-
   @ApiProperty()
   @PrimaryGeneratedColumn()
   id: number;
@@ -28,5 +29,14 @@ export class Produto {
   @IsBoolean()
   @Column({ default: true })
   disponivel: boolean;
-  
+
+  @ManyToOne(() => Usuario, (usuario) => usuario.produtos, {
+    onDelete: 'CASCADE',
+  })
+  usuario: Usuario;
+
+  @ManyToOne(() => Categoria, (categoria) => categoria.produtos, {
+    onDelete: 'CASCADE',
+  })
+  categoria: Categoria;
 }

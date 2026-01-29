@@ -24,7 +24,15 @@ async function bootstrap() {
 
   process.env.TZ = '-03:00';
 
-  app.useGlobalPipes(new ValidationPipe());
+  //app.useGlobalPipes(new ValidationPipe());
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: false,
+      forbidNonWhitelisted: false,
+    }),
+  );
 
   app.enableCors();
 
