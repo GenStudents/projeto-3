@@ -9,7 +9,7 @@
 ## 🔗 Links do Projeto
 
 - 🚀 **Link do Deploy (Render):**  
-  [Acesse a API Online](https://SEU-APP.onrender.com)
+  [Acesse a API Online](https://projeto-3-alm5.onrender.com/swagger)
 
 - 📂 **Repositório GitHub:**  
   [Link para o Código Fonte](https://github.com/GenStudents/projeto-3)
