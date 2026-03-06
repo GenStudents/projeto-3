@@ -8,7 +8,7 @@ export class ProdService implements TypeOrmOptionsFactory {
       type: 'postgres',
       url: process.env.DATABASE_URL,
       logging: false,
-      dropSchema: true,
+      dropSchema: false,
       ssl: {
         rejectUnauthorized: false,
       },
