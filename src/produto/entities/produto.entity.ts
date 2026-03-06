@@ -6,6 +6,7 @@ import { Usuario } from '../../usuario/entities/usuario.entity';
 
 @Entity({ name: 'tb_produtos' })
 export class Produto {
+
   @ApiProperty()
   @PrimaryGeneratedColumn()
   id: number;
@@ -29,36 +30,38 @@ export class Produto {
   @IsBoolean()
   @Column({ default: true })
   disponivel: boolean;
-  @ApiProperty()
-  @IsNumber()
-  @IsOptional()
-  @Column({ nullable: true })
-  calorias: number;
 
   @ApiProperty()
   @IsNumber()
   @IsOptional()
   @Column({ nullable: true })
-  proteina: number;
+  calorias?: number;
 
   @ApiProperty()
   @IsNumber()
   @IsOptional()
   @Column({ nullable: true })
-  gordura: number;
+  proteina?: number;
 
   @ApiProperty()
   @IsNumber()
   @IsOptional()
   @Column({ nullable: true })
-  acucar: number;
+  gordura?: number;
+
+  @ApiProperty()
+  @IsNumber()
+  @IsOptional()
+  @Column({ nullable: true })
+  acucar?: number;
 
   @ManyToOne(() => Usuario, (usuario) => usuario.produtos, {
     onDelete: 'CASCADE',
   })
   usuario: Usuario;
 
-
+@ApiProperty({ type: () => Categoria })
+@IsNotEmpty()
 @ManyToOne(() => Categoria, (categoria) => categoria.produtos, {
   onDelete: 'CASCADE',
   nullable: false,
