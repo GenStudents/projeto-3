@@ -10,6 +10,11 @@ export class Produto {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @ApiProperty({ required: false }) // Indica no Swagger que é opcional
+  @IsOptional()
+  @Column({ length: 5000, nullable: true }) // Link pode ser longo, por isso o length maior
+  foto?: string;
+
   @ApiProperty()
   @IsNotEmpty()
   @Column()
